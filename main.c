@@ -1,5 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <readline/readline.h>
+#include <math.h>
+
 
 int sum_n(int n) {
   if (n<=1) {
@@ -12,17 +15,17 @@ int sum_n(int n) {
 
 void print_n(const char *s, int n) {
   if (n>0) {
-    printf("s");
-    print_n(const char *s, int n);
+    printf("%s\n", s);
+    print_n(s, n-1);
+    return;
   }
 }
 
 
 int main(void) {
-  char *num = readline("Enter an int: ");
-  int n = atoi(num);
-  printf("sum is %s.\n", sum_n(n));
+  int num = atoi(readline("Enter an int: "));
+  printf("sum is %d.\n", sum_n(num));
   char *s = readline("Enter a string: ");
-  printf("%s\n", rint_n(s,n));
+  print_n(s, num);
   return 0;
 }
